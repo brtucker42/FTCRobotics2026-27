@@ -40,7 +40,7 @@ public class Testopmode extends OpMode {
 
     @Override
     public void loop() {
-        // get gamepad cmds
+        // get gamepad commands
         // set target velocity
         // update telemetry
 
