@@ -27,6 +27,9 @@ public class Testopmode extends OpMode {
 
     int stepIndex = 1;
 
+    //DriveTrain class when ready
+    //DriveTrain driveTrain;
+
     @Override
     public void init() {
         flywheelMotor = hardwareMap.get(DcMotorEx.class, "motor");
@@ -36,6 +39,9 @@ public class Testopmode extends OpMode {
         PIDFCoefficients pidfCoefficients = new PIDFCoefficients(P, 0, 0, F);
         flywheelMotor.setPIDFCoefficients(DcMotor.RunMode.RUN_USING_ENCODER, pidfCoefficients);
         telemetry.addLine("Init Complete");
+
+        //drive train initialization
+        //driveTrain = new DriveTrain (hardwareMap);
     }
 
     @Override
@@ -92,5 +98,8 @@ public class Testopmode extends OpMode {
         telemetry.addLine("This is a test");
 
         telemetry.update();
+
+        //Drive train call example
+        //driveTrain.Drive (gamepad1.left_stick_y, gamepad1.left_stick_x, gamepad1.right_stick_x);
     }
 }
