@@ -10,6 +10,7 @@ public class mainClassTest extends OpMode {
     TurretTest turretTest;
     IntakeTest intakeTest;
     TransferTest transferTest;
+    FlywheelTest flywheelTest;
 
     @Override
     public void init() {
@@ -17,6 +18,7 @@ public class mainClassTest extends OpMode {
         turretTest = new TurretTest(hardwareMap);
         intakeTest = new IntakeTest(hardwareMap);
         transferTest = new TransferTest(hardwareMap);
+        flywheelTest = new FlywheelTest(hardwareMap);
     }
 
     @Override
@@ -25,5 +27,6 @@ public class mainClassTest extends OpMode {
         turretTest.turretManualControl(gamepad1);
         intakeTest.intakeManualControl(gamepad1);
         transferTest.transferManualControl(gamepad1);
+        flywheelTest.flywheelManualControl(gamepad1);
     }
 }
