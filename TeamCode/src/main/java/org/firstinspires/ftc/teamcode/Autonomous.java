@@ -1,47 +1,53 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 
-@com.qualcomm.robotcore.eventloop.opmode.Autonomous
+@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name = "Autonomous")
 
-public class Autonomous extends OpMode {
+public class Autonomous extends LinearOpMode {
     DcMotor frontLeftMotor;
     DcMotor frontRightMotor;
     DcMotor backLeftMotor;
     DcMotor backRightMotor;
+
     @Override
-    public void init() {
+    public void runOpMode() {
 
+        frontLeftMotor = hardwareMap.dcMotor.get("frontLeftMotor");
+        backLeftMotor = hardwareMap.dcMotor.get("backLeftMotor");
+        frontRightMotor = hardwareMap.dcMotor.get("frontRightMotor");
+        backRightMotor = hardwareMap.dcMotor.get("backRightMotor");
 
-            frontLeftMotor  = hardwareMap.dcMotor.get("frontLeftMotor");
-            backLeftMotor   = hardwareMap.dcMotor.get("backLeftMotor");
-            frontRightMotor = hardwareMap.dcMotor.get("frontRightMotor");
-            backRightMotor  = hardwareMap.dcMotor.get("backRightMotor");
+        frontLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        backLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        frontRightMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+        backRightMotor.setDirection(DcMotorSimple.Direction.FORWARD);
 
-            frontLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
-            backLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        frontLeftMotor.setPower(0);
+        backLeftMotor.setPower(0);
+        frontRightMotor.setPower(0);
+        backRightMotor.setPower(0);
 
-            //Make Sure Motors are off
+        waitForStart();
+
+        if (opModeIsActive()) {
+
+            frontLeftMotor.setPower(0.5);
+            backLeftMotor.setPower(0.5);
+            frontRightMotor.setPower(0.5);
+            backRightMotor.setPower(0.5);
+
+            sleep(700);
+
             frontLeftMotor.setPower(0);
             backLeftMotor.setPower(0);
             frontRightMotor.setPower(0);
             backRightMotor.setPower(0);
-            }
 
-    @Override
-    public void loop() {
-        //Move a bit Forward
-        frontLeftMotor.setPower(0.5);
-        backLeftMotor.setPower(0.5);
-        frontRightMotor.setPower(0.5);
-        backRightMotor.setPower(0.5);
-
-        sleep(5);
-
+        }
     }
-
 }
